@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void print_bits(char *type, void* value);
+void print_bits(char *type, void *value);
 void print_float(float *value);
 void print_hex(char *type, void *value);
+void print_addresses(char *type, void *value);
 
 void take_data(char *type, char* value){
     void *data_p = NULL;
@@ -25,6 +26,7 @@ void take_data(char *type, char* value){
     if (strcmp(type, "float") != 0) print_bits(type, data_p);
     else print_float(data_p);
     print_hex(type, data_p);
+    print_addresses(type, data_p);
 }
 
 
@@ -88,4 +90,15 @@ void print_hex(char *type, void* value){
         printf("%02x", p[i]);    
     }
     printf("\n");
+}
+
+void print_addresses(char *type, void *value){
+    char *p = (char*) value;
+    size_t size = 0;
+    if (strcmp(type, "int") == 0 || strcmp(type, "float") == 0) size = sizeof(int);
+    else if (strcmp(type, "char") == 0) size = sizeof(char);
+    else if (strcmp(type, "string") == 0) size = sizeof(char) * strlen(value);
+    for (int i = (int) size - 1; i >= 0; i--){
+        printf("%p\n", p + i);
+    }
 }
