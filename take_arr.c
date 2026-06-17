@@ -25,11 +25,10 @@ void take_arr(char **argv){
             ((char **)p)[i] = word;
         }
     }
-    char *s = (char *) p;
     for (int i = num_of_elements - 1; i >= 0; i--){
         for (int j = size - 1; j >= 0; j--){
             for (int k = 7; k >= 0; k--){
-                int bit = (s[i * size + j] >> k) & 1;
+                int bit = (((char*)p)[i * size + j] >> k) & 1;
                 printf("%d", bit);
             }
             printf(" ");
