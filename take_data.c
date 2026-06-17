@@ -80,7 +80,7 @@ void print_float(float *value){
 
 void print_hex(char *type, void* value){
     size_t size = 0;
-    char *p = (char *) value;
+    unsigned char *p = (unsigned char *) value;
     if (strcmp(type, "int") == 0 || strcmp(type, "float") == 0) size = sizeof(int);
     else if (strcmp(type, "char") == 0) size = sizeof(char);
     else if (strcmp(type, "string") == 0) size = strlen((char*)value);
