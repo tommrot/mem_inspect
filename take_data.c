@@ -19,7 +19,7 @@ void take_data(char *type, char* value){
         data_p = malloc(sizeof(char));
         *((char*) data_p) = *value;
     } else if (strcmp(type, "string") == 0){
-        data_p = malloc(sizeof(char) * strlen(value));
+        data_p = malloc(sizeof(char) * strlen(value) + 1);
         strcpy((char*)data_p, value);
     }
 
