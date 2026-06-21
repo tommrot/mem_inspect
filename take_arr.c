@@ -35,4 +35,5 @@ void take_arr(char **argv){
         }
         printf("\n");
     }
+    free(p);
 }

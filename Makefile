@@ -1,6 +1,6 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -g
-TARGET  = program
+TARGET  = inspect
 SRCS    = main.c take_data.c compute_datas.c take_arr.c
 OBJS    = $(SRCS:.c=.o)
 
